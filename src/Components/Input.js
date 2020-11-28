@@ -1,4 +1,6 @@
 import { Component } from "react";
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
 
 export default class Input extends Component {
     constructor(props){
@@ -32,26 +34,24 @@ export default class Input extends Component {
     
     render(){
         return(
-            <div style={{display:"flex"}}>
+            <div style={{display:"flex", marginBottom:"20pt"}}>
                 <form onSubmit = {this.handleSubmit}>
-                    <label> Key word: 
-                        <input 
-                            name = "text"
-                            placeholder = "search..."
-                            value = {this.state.text}
-                            onChange = {this.handleChange} />
-                    </label>
+                    <TextField id="outlined-basic" label="Text" variant="outlined" size = "small"
+                        style = {{marginLeft: "5pt"}}
+                        name = "text"
+                        value = {this.state.text}
+                        onChange = {this.handleChange}
+                    />
                 </form>
                 <form onSubmit = {this.handleSubmit}>
-                <label> Author:
-                        <input 
-                            name = "author" 
-                            placeholder = "Author..."
-                            value = {this.state.author}
-                            onChange = {this.handleChange} />
-                    </label>
+                    <TextField id="outlined-basic" label="Author" variant="outlined" size = "small"
+                        style = {{marginLeft: "5pt"}}
+                        name = "author"
+                        value = {this.state.author}
+                        onChange = {this.handleChange}
+                    />
                 </form>
-                <button onClick = {this.handleSubmit}>submit</button>
+                <Button size="small" variant="contained" color="primary" style={{marginLeft:"5pt"}}>Sumbit</Button>
             </div>
         )
     }
