@@ -51,7 +51,7 @@ export default class Input extends Component {
                         onChange = {this.handleChange}
                     />
                 </form>
-                <Button size="small" variant="contained" color="primary" style={{marginLeft:"5pt"}}>Sumbit</Button>
+                <Button onClick = {this.handleSubmit} size="small" variant="contained" color="primary" style={{marginLeft:"5pt"}}>Sumbit</Button>
             </div>
         )
     }
