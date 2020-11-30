@@ -19,6 +19,9 @@ const Body = (props) => {
                     <Typography variant="body2" color="textSecondary">
                         URL: {props.item.url}
                     </Typography>
+                    <Typography variant="body2" color="textSecondary">
+                        Created: {props.item.created_at.substr(0,19)}
+                    </Typography>
                 </CardContent>
                 {/* <CardActions>
                     <IconButton aria-label="add to favorites" >
