@@ -1,10 +1,7 @@
 import { Component } from "react";
 import Input from './Input'
 import Body from './Body'
-import AppBar from '@material-ui/core/AppBar';
-import Typography from '@material-ui/core/Typography';
-import Toolbar from '@material-ui/core/Toolbar';
-import Avatar from '@material-ui/core/Avatar';
+import NavBar from "./NavBar";
 
 export default class Head extends Component {
     constructor(props) {
@@ -51,19 +48,10 @@ export default class Head extends Component {
         if(this.state.isFetching){
             return(
             <div>
-                <AppBar position="static">
-                    <Toolbar>
-                        <Avatar variant="square">
-                            H
-                        </Avatar>
-                        <Typography style={{marginLeft:"10pt"}} component="h4" variant="h4" >
-                            Hacker News Search
-                        </Typography>
-                    </Toolbar>
-                </AppBar>
+                <NavBar />
                 <h3 style={{marginLeft:"5pt"}}>Search Criteria:</h3>
                 <Input searchItem ={this.searchItem} />
-                <div>Loading...</div>
+                <div style={{marginLeft:"5pt"}}>Loading...</div>
             </div>
             )
         }
@@ -71,36 +59,17 @@ export default class Head extends Component {
         if(!this.state.stories.length){
             return(
             <div>
-                <AppBar position="static">
-                    <Toolbar>
-                        <Avatar variant="square">
-                            H
-                        </Avatar>
-                        <Typography style={{marginLeft:"10pt"}} component="h4" variant="h4" >
-                            Hacker News Search
-                        </Typography>
-                    </Toolbar>
-                </AppBar>
+                <NavBar />
                 <h3 style={{marginLeft:"5pt"}}>Search Criteria:</h3>
                 <Input searchItem ={this.searchItem} />
-                <div>...No results found...</div>
+                <div style={{marginLeft:"5pt"}}>...No results found...</div>
             </div>
             )
         }
         
-
         return(
             <div>
-                <AppBar position="static">
-                    <Toolbar>
-                        <Avatar variant="square">
-                            H
-                        </Avatar>
-                        <Typography style={{marginLeft:"10pt"}} component="h4" variant="h4" >
-                            Hacker News Search
-                        </Typography>
-                    </Toolbar>
-                </AppBar>
+                <NavBar />
                 <h3 style={{marginLeft:"5pt"}}>Search Criteria:</h3>
                 <Input searchItem ={this.searchItem} />
                 {this.state.stories.map(item => (

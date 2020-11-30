@@ -20,7 +20,7 @@ const Body = (props) => {
                         URL: {props.item.url}
                     </Typography>
                     <Typography variant="body2" color="textSecondary">
-                        Created: {props.item.created_at.substr(0,19)}
+                        Created: {props.item.created_at}
                     </Typography>
                 </CardContent>
                 {/* <CardActions>
