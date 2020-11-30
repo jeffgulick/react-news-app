@@ -1,19 +1,24 @@
 import { Component } from "react";
 import Input from './Input'
 import Body from './Body'
+import AppBar from '@material-ui/core/AppBar';
+import Typography from '@material-ui/core/Typography';
+import Toolbar from '@material-ui/core/Toolbar';
+import Avatar from '@material-ui/core/Avatar';
 
 export default class Head extends Component {
     constructor(props) {
         super(props)
 
         this.state = {
-            stories: [""]
+            stories: [""],
+            isFetching: false
         }
     }
     searchItem = (item) => {
         this.setState({
             stories: [],
-            loading: true
+            isFetching: true
         })
 
         let topic = item.text
@@ -34,40 +39,69 @@ export default class Head extends Component {
         .then(response => response.json())
         .then(data => this.setState({
           stories: data.hits,
-          loading: false
+          isFetching: false
         }))
-        .catch(error => console.log(`Error, ${error}`))
+        .catch(error => {
+            console.log(error);
+            this.setState({...this.state, isFetching: false})
+        })
       }
 
     render() {
-        if(this.state.loading){
+        if(this.state.isFetching){
             return(
             <div>
-                <div>
-                    <h1>Hacker News</h1>
-                    <h3>Search Criteria</h3>
-                    <Input searchItem ={this.searchItem} />
-                    <div>Loading...</div>
-                </div>
+                <AppBar position="static">
+                    <Toolbar>
+                        <Avatar variant="square">
+                            H
+                        </Avatar>
+                        <Typography style={{marginLeft:"10pt"}} component="h4" variant="h4" >
+                            Hacker News Search
+                        </Typography>
+                    </Toolbar>
+                </AppBar>
+                <h3 style={{marginLeft:"5pt"}}>Search Criteria:</h3>
+                <Input searchItem ={this.searchItem} />
+                <div>Loading...</div>
             </div>
             )
         }
+
         if(!this.state.stories.length){
             return(
             <div>
-                <div>
-                    <h1>Hacker News</h1>
-                    <h3>Search Criteria</h3>
-                    <Input searchItem ={this.searchItem} />
-                    <div>...No results found...</div>
-                </div>
+                <AppBar position="static">
+                    <Toolbar>
+                        <Avatar variant="square">
+                            H
+                        </Avatar>
+                        <Typography style={{marginLeft:"10pt"}} component="h4" variant="h4" >
+                            Hacker News Search
+                        </Typography>
+                    </Toolbar>
+                </AppBar>
+                <h3 style={{marginLeft:"5pt"}}>Search Criteria:</h3>
+                <Input searchItem ={this.searchItem} />
+                <div>...No results found...</div>
             </div>
             )
         }
+        
+
         return(
             <div>
-                <h1>Hacker News</h1>
-                <h3>Search Criteria</h3>
+                <AppBar position="static">
+                    <Toolbar>
+                        <Avatar variant="square">
+                            H
+                        </Avatar>
+                        <Typography style={{marginLeft:"10pt"}} component="h4" variant="h4" >
+                            Hacker News Search
+                        </Typography>
+                    </Toolbar>
+                </AppBar>
+                <h3 style={{marginLeft:"5pt"}}>Search Criteria:</h3>
                 <Input searchItem ={this.searchItem} />
                 {this.state.stories.map(item => (
                     <Body key = {item.objectID} item = {item} />
