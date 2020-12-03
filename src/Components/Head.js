@@ -1,7 +1,6 @@
 import { Component } from "react";
 import Input from './Input'
 import Body from './Body'
-import NavBar from "./NavBar";
 import CircularProgress from '@material-ui/core/CircularProgress';
 
 export default class Head extends Component {
@@ -49,7 +48,6 @@ export default class Head extends Component {
         if(this.state.isFetching){
             return(
             <div>
-                <NavBar />
                 <h3 style={{marginLeft:"5pt"}}>Search Criteria:</h3>
                 <Input searchItem ={this.searchItem} />
                 <div style={{marginLeft:"5pt"}}>Loading... </div>
@@ -61,7 +59,6 @@ export default class Head extends Component {
         if(!this.state.stories.length){
             return(
             <div>
-                <NavBar />
                 <h3 style={{marginLeft:"5pt"}}>Search Criteria:</h3>
                 <Input searchItem ={this.searchItem} />
                 <div style={{marginLeft:"5pt"}}>...No results found...</div>
@@ -71,7 +68,6 @@ export default class Head extends Component {
         
         return(
             <div>
-                <NavBar />
                 <h3 style={{marginLeft:"5pt"}}>Search Criteria:</h3>
                 <Input searchItem ={this.searchItem} />
                 {this.state.stories.map(item => (
