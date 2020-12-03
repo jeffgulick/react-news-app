@@ -2,6 +2,7 @@ import { Component } from "react";
 import Input from './Input'
 import Body from './Body'
 import NavBar from "./NavBar";
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 export default class Head extends Component {
     constructor(props) {
@@ -51,7 +52,8 @@ export default class Head extends Component {
                 <NavBar />
                 <h3 style={{marginLeft:"5pt"}}>Search Criteria:</h3>
                 <Input searchItem ={this.searchItem} />
-                <div style={{marginLeft:"5pt"}}>Loading...</div>
+                <div style={{marginLeft:"5pt"}}>Loading... </div>
+                <CircularProgress />
             </div>
             )
         }
