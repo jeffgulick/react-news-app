@@ -1,6 +1,6 @@
 import { Component } from "react";
 import Input from './Input'
-import Body from './Body'
+import MainBody from './Main-Body'
 import NavBar from "./NavBar";
 import CircularProgress from '@material-ui/core/CircularProgress';
 import Typography from '@material-ui/core/Typography';
@@ -91,7 +91,7 @@ export default class Head extends Component {
                     <Input searchItem ={this.searchItem} />
                     <Typography style={{marginLeft:"10pt", fontStyle:"italic"}} component="h4" variant="h4">Latest News:</Typography>
                     {this.state.frontPageStories.map((item, index) => (
-                        <Body key = {index} item = {item} />
+                        <MainBody key = {index} item = {item} />
                     ))}
                 </div>
             )
@@ -115,7 +115,7 @@ export default class Head extends Component {
                 <h3 style={{marginLeft:"5pt"}}>Search Criteria:</h3>
                 <Input searchItem ={this.searchItem} />
                 {this.state.stories.map((item, index) => (
-                    <Body key = {index} item = {item} />
+                    <MainBody key = {index} item = {item} />
                 ))}
             </div>
         )
